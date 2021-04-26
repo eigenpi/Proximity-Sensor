@@ -1,0 +1,3 @@
+(sym_lib_table
+  (lib (name ProximityTankOne_Square7Turns-rescue)(type Legacy)(uri ${KIPRJMOD}/ProximityTankOne_Square7Turns-rescue.lib)(options "")(descr ""))
+)

@@ -1,0 +1,82 @@
+
+(rules PCB ProximityMother_V1
+  (snap_angle 
+    fortyfive_degree
+  )
+  (autoroute_settings
+    (fanout off)
+    (autoroute on)
+    (postroute on)
+    (vias on)
+    (via_costs 50)
+    (plane_via_costs 5)
+    (start_ripup_costs 100)
+    (start_pass_no 3465)
+    (layer_rule F.Cu
+      (active on)
+      (preferred_direction vertical)
+      (preferred_direction_trace_costs 1.0)
+      (against_preferred_direction_trace_costs 3.2)
+    )
+    (layer_rule B.Cu
+      (active on)
+      (preferred_direction horizontal)
+      (preferred_direction_trace_costs 1.0)
+      (against_preferred_direction_trace_costs 1.5)
+    )
+  )
+  (rule
+    (width 254.0)
+    (clear 152.6)
+    (clear 127.0 (type smd_to_turn_gap))
+    (clear 38.2 (type smd_smd))
+  )
+  (padstack "Via[0-1]_685.8:330.2_um"
+    (shape
+      (circle F.Cu 685.8 0.0 0.0)
+    )
+    (shape
+      (circle B.Cu 685.8 0.0 0.0)
+    )
+    (attach off)
+  )
+  (via 
+    "Via[0-1]_685.8:330.2_um" "Via[0-1]_685.8:330.2_um" default
+  )
+  (via 
+    "Via[0-1]_685.8:330.2_um-kicad_default" "Via[0-1]_685.8:330.2_um" "kicad_default"
+  )
+  (via_rule
+    default "Via[0-1]_685.8:330.2_um"
+  )
+  (via_rule
+    "kicad_default" "Via[0-1]_685.8:330.2_um-kicad_default"
+  )
+  (class default
+    (clearance_class default)
+    (via_rule default)
+    (rule
+      (width 254.0)
+    )
+    (circuit 
+      (use_layer F.Cu B.Cu)
+    )
+  )
+  (class "kicad_default"
+    GND "/Power, Mux/Demux, Connectors/VIN_LDO" +3V3 DTR "Net-(C8-Pad2)" AREF "Net-(C12-Pad2)" VIN
+    RESET "Net-(D3-Pad2)" "Net-(D4-Pad2)" "Net-(H1-Pad1)" "Net-(H2-Pad1)" "Net-(H3-Pad1)" "Net-(H4-Pad1)" MISO
+    SCK MOSI "LC1_INA" "LC1_INB" "LC2_INA" "LC2_INB" "/ATMEGA328P MCU, CLK Gen, LDC/TXO" "/ATMEGA328P MCU, CLK Gen, LDC/RXI"
+    "CTRL_MUX12" "Net-(R5-Pad2)" "Net-(R5-Pad1)" SDA SCL "/ATMEGA328P MCU, CLK Gen, LDC/PROX_SENSED" "/ATMEGA328P MCU, CLK Gen, LDC/LOW_BATT" "BATT_LEVEL"
+    "Net-(S1-Pad3)" "/ATMEGA328P MCU, CLK Gen, LDC/INB" "/ATMEGA328P MCU, CLK Gen, LDC/INA" "Net-(U2-Pad4)" "CLKIN_LDC" OUT0 CTRL0 CTRL1
+    "CSB_LDC" D5 D6 D7 A6 A7 A1 A2
+    A3 "Net-(D1-Pad1)"
+    (clearance_class "kicad_default")
+    (via_rule kicad_default)
+    (rule
+      (width 254.0)
+    )
+    (circuit 
+      (use_layer F.Cu B.Cu)
+    )
+  )
+)
